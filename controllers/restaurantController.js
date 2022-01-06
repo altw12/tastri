@@ -15,4 +15,26 @@ function getAllRestaurants(request, respond){
     });
 }
 
-module.exports = {getAllRestaurants};
+function getRestaurantReviews(request, respond){
+    restaurantsDB.getRestaurantReviews(request.params.id, function(error, result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    });
+}
+
+function getRestaurantAverageRating(request, respond){
+    restaurantsDB.getRestaurantAverageRating(request.params.id, function(error, result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    });
+}
+
+module.exports = {getAllRestaurants, getRestaurantReviews, getRestaurantAverageRating};

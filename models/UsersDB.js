@@ -28,7 +28,7 @@ class UsersDB{
     }
 
     getAllUserReviews(userID, callback){
-        var sql = "SELECT res.restaurantName, rev.review, rev.rating, rev.price, rev.datePosted FROM restaurant_review.user AS user INNER JOIN restaurant_review.review AS rev ON rev.userId = user._id INNER JOIN restaurant_review.restaurant AS res ON res._id = rev._id WHERE user._id = ?;";
+        var sql = "SELECT res.restaurantName, rev.review, rev.rating, rev.price, rev.datePosted FROM restaurant_review.user AS user INNER JOIN restaurant_review.review AS rev ON rev.userId = user._id INNER JOIN restaurant_review.restaurant AS res ON res._id = rev.restaurantId WHERE user._id = ?";
         return db.query(sql, [userID], callback);
     }
 

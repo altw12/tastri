@@ -13,7 +13,7 @@ class ReviewsDB{
     }
 
     updateReview(review, callback){
-        var sql = "UPDATE review SET review = ?, rating = ?, datePosted = ? WHERE _id = ?";
+        var sql = "UPDATE review SET review = ?, rating = ?, price = ?, datePosted = ? WHERE _id = ?";
         return db.query(sql, [review.getReview(), review.getRating(), review.getPrice(), review.getDatePosted(), review.getId()], callback);
     }
 
