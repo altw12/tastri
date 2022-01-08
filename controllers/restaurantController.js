@@ -37,4 +37,15 @@ function getRestaurantAverageRating(request, respond){
     });
 }
 
-module.exports = {getAllRestaurants, getRestaurantReviews, getRestaurantAverageRating};
+function getRestaurantAveragePriceRating(request, respond){
+    restaurantsDB.getRestaurantAveragePriceRating(request.params.id, function(error, result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    });
+}
+
+module.exports = {getAllRestaurants, getRestaurantReviews, getRestaurantAverageRating, getRestaurantAveragePriceRating};

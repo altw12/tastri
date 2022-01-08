@@ -8,13 +8,13 @@ class UsersDB{
     }
     
     addUser(user, callback){
-        var sql = "INSERT INTO user (username, profilePic, bio, password) VALUES (?, ?, ?, ?)";
-        db.query(sql, [user.getUsername(), user.getProfilePic(), user.getBio(), user.getPassword()], callback);
+        var sql = "INSERT INTO user (username, profilePic, bio, password, firstName, lastName, gender, address, mobileNumber, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        db.query(sql, [user.getUsername(), user.getProfilePic(), user.getBio(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getGender(), user.getAddress(), user.getMobileNumber(), user.getEmail()], callback);
     }
 
     updateUser(user, callback){
-        var sql = "UPDATE user SET username = ?, profilePic = ?, bio = ?, password = ? WHERE _id = ?";
-        return db.query(sql, [user.getUsername(), user.getProfilePic(), user.getBio(), user.getPassword(), user.getId()], callback);
+        var sql = "UPDATE user SET username = ?, profilePic = ?, bio = ?, password = ?, firstName = ?, lastName = ?, gender = ?, address = ?, mobileNumber = ?, email = ? WHERE _id = ?";
+        return db.query(sql, [user.getUsername(), user.getProfilePic(), user.getBio(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getGender(), user.getAddress(), user.getMobileNumber(), user.getEmail(), user.getId()], callback);
     }
 
     deleteUser(userID, callback){

@@ -27,6 +27,7 @@ app.route('/reviews/:id').get(reviewController.getReviewInfo); //works
 app.route('/restaurants').get(restaurantController.getAllRestaurants); //works
 app.route('/restaurants/:id').get(restaurantController.getRestaurantReviews); //works
 app.route('/restaurant_average_rating/:id').get(restaurantController.getRestaurantAverageRating); //works
+app.route('/restaurant_average_pricerating/:id').get(restaurantController.getRestaurantAveragePriceRating); //works
 
 
 app.listen(8000, "127.0.0.1");

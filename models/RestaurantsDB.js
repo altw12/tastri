@@ -14,6 +14,11 @@ class RestaurantsDB{
         var sql = "SELECT AVG(rev.rating) FROM restaurant_review.restaurant AS res INNER JOIN restaurant_review.review AS rev ON rev.restaurantId = res._id WHERE res._id = ?";
         return db.query(sql, [resID], callback);
     }
+    getRestaurantAveragePriceRating(resID, callback){
+        var sql = "SELECT AVG(rev.price) FROM restaurant_review.restaurant AS res INNER JOIN restaurant_review.review AS rev ON rev.restaurantId = res._id WHERE res._id = ?";
+        return db.query(sql, [resID], callback);
+    }
+
 }
 
 

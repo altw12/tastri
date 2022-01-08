@@ -25,7 +25,7 @@ function addUser(request, respond){
     var password = request.body.password;
     password = bcrypt.hashSync(password, 10);
 
-    var user = new User(null, username, request.body.profilePic, request.body.bio, password);
+    var user = new User(null, username, request.body.profilePic, request.body.bio, password, request.body.firstName, request.body.lastName, request.body.gender, request.body.address, request.body.mobileNumber, request.body.email);
 
     usersDB.addUser(user, function(error, result){
         if(error){
@@ -41,7 +41,7 @@ function updateUser(request, respond){
     var password = request.body.password;
     password = bcrypt.hashSync(password, 10);
 
-    var user = new User(parseInt(request.params.id), request.body.username, request.body.profilePic, request.body.bio, password);
+    var user = new User(parseInt(request.params.id), request.body.username, request.body.profilePic, request.body.bio, password, request.body.firstName, request.body.lastName, request.body.gender, request.body.address, request.body.mobileNumber, request.body.email);
     var token = request.body.token; //need token to update
     try {
         var decoded = jwt.verify(token, secretkey);
