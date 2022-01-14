@@ -4,12 +4,56 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reviews</title>
+    <title>Tastri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
-    <!-- your content here... -->
+
+    <!-- navigation bar -->
+    <header>
+      <!-- tastri logo -->
+      <img class="logo" src="images/tastrilogo.png" alt="logo">
+
+      <!-- links -->
+      <ul>
+        <li><a href="#">RESTAURANTS</a></li>
+        <li><a href="#">PROFILE</a></li>
+        <li><a href="#">ABOUT TASTRI</a></li>
+      </ul>
+    </header>
+
+    <!-- slideshow -->
+    <div id="slider">
+      <figure>
+        <div class="img-wrap-dark">
+          <img src="images/placeholder-image-cropped.jpg">
+        </div>
+        <div class="img-wrap-dark">
+          <img src="images/placeholder-image-cropped.jpg">
+        </div>
+        <div class="img-wrap-dark">
+          <img src="images/placeholder-image-cropped.jpg">
+        </div>
+        <div class="img-wrap-dark">
+          <img src="images/placeholder-image-cropped.jpg">
+        </div>
+      </figure>
+    </div>
+    <!-- bottom half of page -->
+
+    
+
+    <!-- header script -->
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0)
+      })
+    </script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
