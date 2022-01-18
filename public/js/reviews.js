@@ -1,5 +1,7 @@
 const req = require("express/lib/request");
 
+
+//takes review data from database and stores it in an array
 function fetchReviews(){
     var request = new XMLHttpRequest();
     request.open('GET', review_url, true);
@@ -11,10 +13,10 @@ function fetchReviews(){
 }
 
 function showRestaurantReviews(element){
-    document.getElementById("empty-review").innerHTML = 'No reviews.';
+    document.getElementById("empty-review").innerHTML = 'No reviews.'; //if empty-review is visible, show no reviews
     var item = element.getAttribute("item");
     currentIndex = item;
-    document.getElementById("review").textContent = "Review for " + restaurant_array[item].restaurantName;
+    document.getElementById("review").textContent = "Review for " + restaurant_array[item].restaurantName; //
     document.getElementById("review-body").textContent = "";
 
     for(var i = 0; i < restaurant_array.length; i++){
@@ -25,23 +27,24 @@ function showRestaurantReviews(element){
             //document.getElementById("review-body").insertAdjacentHTML('beforeend', html);
             var rating = "";
             for (var j = 0; j < review_array[i].rating; j++){
-                //console.log(i);
                 rating += 1;
             }
             document.getElementById("rating" + i).insertAdjacentHTML('beforebegin', rating);
+
+            //generate
         }
     }
 }
 
 function newReview() {
-    //Initialise each HTML input elements in the modal window with default value.
+    //init default
         var rating = 0;
         var price = 0;
         document.getElementById("user-reviews").value = "";
         document.getElementById("username").value = "";
 }
 
-// Submit or send the new review to the server to be added. CHANGEEEEEEEEEEEEEEEEEEE
+
 function addReview() {
     var review = new Object();
     review.restaurantId = restaurant_array[currentIndex]._id; // Movie ID is required by server to create new comment 
@@ -54,7 +57,7 @@ function addReview() {
 
     var postReview = new XMLHttpRequest(); // new HttpRequest instance to send comment
 
-    postReview.open("POST", comment_url, true); //Use the HTTP POST method to send data to server
+    postReview.open("POST", review_url, true); //Use the HTTP POST method to send data to server
 
     postReview.setRequestHeader("Content-Type", "application/json");
     postReview.onload = function() {

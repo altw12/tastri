@@ -66,3 +66,7 @@ function showRestaurantDetails(element) {
     document.getElementById("location").textContent = restaurant_array[item].location;
     document.getElementById("tags").textContent = restaurant_array[item].tags;
 }
+
+function restaurantsOfTheDay(){
+    
+}
