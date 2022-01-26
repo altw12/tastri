@@ -10,13 +10,13 @@ class RestaurantsDB{
         var sql = "SELECT user.username, rev.review, rev.rating, rev.price, rev.datePosted FROM restaurant_review.restaurant AS res INNER JOIN restaurant_review.review AS rev ON rev.restaurantId = res._id INNER JOIN restaurant_review.user AS user ON user._id = rev.userId WHERE res._id = ?";
         return db.query(sql, [resID], callback);
     }
-    getRestaurantAverageRating(resID, callback){
-        var sql = "SELECT AVG(rev.rating) FROM restaurant_review.restaurant AS res INNER JOIN restaurant_review.review AS rev ON rev.restaurantId = res._id WHERE res._id = ?";
-        return db.query(sql, [resID], callback);
+    getRestaurantAverageRating(callback){
+        var sql = "SELECT (SELECT AVG(rev.rating) FROM restaurant_review.review AS rev WHERE res._id = rev.restaurantId) averageRating FROM restaurant_review.restaurant AS res;";
+        return db.query(sql, callback);
     }
-    getRestaurantAveragePriceRating(resID, callback){
-        var sql = "SELECT AVG(rev.price) FROM restaurant_review.restaurant AS res INNER JOIN restaurant_review.review AS rev ON rev.restaurantId = res._id WHERE res._id = ?";
-        return db.query(sql, [resID], callback);
+    getRestaurantAveragePriceRating(callback){
+        var sql = "SELECT (SELECT AVG(rev.price) FROM restaurant_review.review AS rev WHERE res._id = rev.restaurantId) averagePrice FROM restaurant_review.restaurant AS res;";
+        return db.query(sql, callback);
     }
 }
 

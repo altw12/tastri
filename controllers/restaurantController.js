@@ -27,7 +27,7 @@ function getRestaurantReviews(request, respond){
 }
 
 function getRestaurantAverageRating(request, respond){
-    restaurantsDB.getRestaurantAverageRating(request.params.id, function(error, result){
+    restaurantsDB.getRestaurantAverageRating(function(error, result){
         if(error){
             respond.json(error);
         }
@@ -38,7 +38,7 @@ function getRestaurantAverageRating(request, respond){
 }
 
 function getRestaurantAveragePriceRating(request, respond){
-    restaurantsDB.getRestaurantAveragePriceRating(request.params.id, function(error, result){
+    restaurantsDB.getRestaurantAveragePriceRating(function(error, result){
         if(error){
             respond.json(error);
         }
