@@ -87,7 +87,7 @@ function getLoginInfo(request, respond){
                 // respond.json({result:hash});
             }
             else{
-                respond.json({result:"invalid"});
+                respond.json({result: false});
             }
         }
     });
